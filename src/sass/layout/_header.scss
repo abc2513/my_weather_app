@@ -1,0 +1,37 @@
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.2),
+            40%,
+            rgba($color-primary-dark, 0.8)
+        ),
+        url(../img/Alice.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    -webkit-background-clip:polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    background-clip:polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+
+    .logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+        &:hover {
+            animation-name: moveInLeft;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+        }
+        .logo {
+            height: 3.5rem;
+        }
+    }
+    .text-box {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}

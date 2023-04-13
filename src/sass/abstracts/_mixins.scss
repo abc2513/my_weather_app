@@ -1,0 +1,14 @@
+@mixin clearfix{//处理子元素全部浮动导致的元素塌陷
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin abs-center{//元素绝对居中
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

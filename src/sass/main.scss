@@ -1,0 +1,20 @@
+@import "./abstracts/function";
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
+
+@import "./base/animation";
+@import "./base/base";
+@import "./base/typography";
+@import "./base/utilities";
+
+@import './components/day-small-card';
+@import './components/days-report';
+@import './components/hours-report';
+@import './components/now-weather';
+
+@import "./layout/header";
+@import "./layout/gird";
+@import "./layout/navigation";
+
+
+  

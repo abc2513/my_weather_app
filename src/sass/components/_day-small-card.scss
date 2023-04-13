@@ -1,0 +1,33 @@
+.day-small-card{
+    display: inline-block;
+    width: 50%;
+    height: 8rem;
+    background-image: linear-gradient(rgba($color-grey-dark,0.2),$color-white 90%);
+    position: relative;
+    &:not(:last-child){
+        border-right: 1px solid $color-grey-dark;
+    }
+    &-icon{
+        font-size:4rem;
+        position: absolute;
+        bottom: .7rem;
+        line-height: 4rem;
+    }
+    &-icon &-text{
+        display: inline-block;
+        font-size: 2rem;
+    }
+    &-day{
+        position: absolute;
+        bottom:.7rem;
+        right: .2rem;
+        
+    }
+    &-temp{
+        position: absolute;
+        top:.2rem;
+        right: .3rem;
+        font-size: 2.1rem;
+    }
+    
+}

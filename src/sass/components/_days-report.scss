@@ -1,0 +1,35 @@
+.days-report{
+    width: 100%;
+    background-image: linear-gradient($color-white 60%,$color-primary-light);
+    .scoll{
+        overflow: scroll;
+        .scoll-content{
+            width: 180rem;
+            .chart-content{
+                height: 30rem;
+                width:100%;
+                canvas{
+                    width: 99.4%;
+                    height: 100%;
+                    margin-right: 0.6%;
+                }
+            }
+            .day-content,.night-content{
+                .row *{
+                    text-align: center;
+                    i{
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+            .day-content{
+                color:$color-volcano-dark;
+            }
+            .night-content{
+                color: $color-blue-dark;
+            }
+        }
+    }
+    
+    
+}

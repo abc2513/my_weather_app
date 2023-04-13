@@ -1,0 +1,36 @@
+.hours-report{
+    width: 100%;
+    background-image: linear-gradient($color-white 60%,$color-primary-light);
+    .scoll{
+        width: 100%;
+        overflow: scroll;
+        .scoll-content{
+            width: 336rem;
+            .chart-content{
+                height: 30rem;
+                width:100%;
+                canvas{
+                    width: 99.4%;
+                    height: 100%;
+                    margin-right: 0.6%;
+                }
+            }
+            .up-content,.down-content{
+                .row *{
+                    text-align: center;
+                    i{
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+            .up-content{
+                color:$color-volcano-dark;
+            }
+            .down-content{
+                color: $color-blue-dark;
+            }
+        }
+    }
+   
+    
+}

@@ -1,0 +1,509 @@
+@charset "UTF-8";
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(1rem);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(8rem);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-1rem);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.8rem);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0.2rem);
+  }
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 改成10px便于计算,或者%允许用户修改 */
+}
+
+body {
+  box-sizing: border-box;
+  width: 98vw;
+  min-height: 100vh;
+  margin: 0 auto;
+  color: #003eb3;
+}
+
+/* 字体的属性通常是继承的 */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777;
+}
+
+.u-center-text {
+  text-align: center;
+}
+
+.u-text-center {
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.u-float-left {
+  float: left;
+}
+
+.u-float-right {
+  float: right;
+}
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem;
+}
+
+.u-margin-bottom-4 {
+  margin-bottom: 4rem;
+}
+
+.u-margin-bottom-2 {
+  margin-bottom: 2rem;
+}
+
+.u-margin-top-8 {
+  margin-top: 8rem;
+}
+
+.u-margin-top-4 {
+  margin-top: 4rem;
+}
+
+.u-margin-top-2 {
+  margin-top: 2rem;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  backface-visibility: hidden;
+}
+.heading-primary .heading-primary-main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* animation-delay: 0s;
+  animation-iteration-count: 1; */
+}
+.heading-primary .heading-primary-sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.3rem;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #1677ff, #003eb3);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+}
+.heading-secondary:hover {
+  transform: skewX(1.5deg) skewY(1.5deg) scale(1.2);
+  text-shadow: 0.5rem 1rem 2rem #003eb3;
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+}
+.paragraph:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.day-small-card {
+  display: inline-block;
+  width: 50%;
+  height: 8rem;
+  background-image: linear-gradient(rgba(119, 119, 119, 0.2), #fff 90%);
+  position: relative;
+}
+.day-small-card:not(:last-child) {
+  border-right: 1px solid #777;
+}
+.day-small-card-icon {
+  font-size: 4rem;
+  position: absolute;
+  bottom: 0.7rem;
+  line-height: 4rem;
+}
+.day-small-card-icon .day-small-card-text {
+  display: inline-block;
+  font-size: 2rem;
+}
+.day-small-card-day {
+  position: absolute;
+  bottom: 0.7rem;
+  right: 0.2rem;
+}
+.day-small-card-temp {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.3rem;
+  font-size: 2.1rem;
+}
+
+.days-report {
+  width: 100%;
+  background-image: linear-gradient(#fff 60%, #91caff);
+}
+.days-report .scoll {
+  overflow: scroll;
+}
+.days-report .scoll .scoll-content {
+  width: 180rem;
+}
+.days-report .scoll .scoll-content .chart-content {
+  height: 30rem;
+  width: 100%;
+}
+.days-report .scoll .scoll-content .chart-content canvas {
+  width: 99.4%;
+  height: 100%;
+  margin-right: 0.6%;
+}
+.days-report .scoll .scoll-content .day-content .row *, .days-report .scoll .scoll-content .night-content .row * {
+  text-align: center;
+}
+.days-report .scoll .scoll-content .day-content .row * i, .days-report .scoll .scoll-content .night-content .row * i {
+  font-size: 1.5rem;
+}
+.days-report .scoll .scoll-content .day-content {
+  color: #ad2102;
+}
+.days-report .scoll .scoll-content .night-content {
+  color: rgb(0, 62, 179);
+}
+
+.hours-report {
+  width: 100%;
+  background-image: linear-gradient(#fff 60%, #91caff);
+}
+.hours-report .scoll {
+  width: 100%;
+  overflow: scroll;
+}
+.hours-report .scoll .scoll-content {
+  width: 336rem;
+}
+.hours-report .scoll .scoll-content .chart-content {
+  height: 30rem;
+  width: 100%;
+}
+.hours-report .scoll .scoll-content .chart-content canvas {
+  width: 99.4%;
+  height: 100%;
+  margin-right: 0.6%;
+}
+.hours-report .scoll .scoll-content .up-content .row *, .hours-report .scoll .scoll-content .down-content .row * {
+  text-align: center;
+}
+.hours-report .scoll .scoll-content .up-content .row * i, .hours-report .scoll .scoll-content .down-content .row * i {
+  font-size: 1.5rem;
+}
+.hours-report .scoll .scoll-content .up-content {
+  color: #ad2102;
+}
+.hours-report .scoll .scoll-content .down-content {
+  color: rgb(0, 62, 179);
+}
+
+.now-weather {
+  background-image: url("../alice.jpg");
+  background-size: cover;
+  background-position: 30% 50%;
+  height: 70vh;
+  position: relative;
+}
+.now-weather .shadow {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7) 20%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.7) 80%);
+}
+.now-weather .shadow * {
+  color: rgba(0, 0, 0, 0.8);
+}
+.now-weather .shadow .temp {
+  font-size: 6rem;
+  line-height: 1em;
+  position: absolute;
+  bottom: 9.5rem;
+  left: 2rem;
+}
+.now-weather .shadow .text {
+  position: absolute;
+  bottom: 10rem;
+  left: 7rem;
+  font-size: 2rem;
+  line-height: 1em;
+}
+.now-weather .shadow .right-info-list {
+  padding-right: 0.5rem;
+  width: 8em;
+  float: right;
+  color: #1677ff;
+}
+.now-weather .shadow .right-info-list * {
+  width: 100%;
+  float: right;
+  text-align: right;
+}
+.now-weather .shadow .left-info-list {
+  padding-left: 0.5rem;
+  width: 8em;
+  float: left;
+  color: #1677ff;
+}
+.now-weather .shadow .left-info-list .obstime {
+  width: 100vw;
+}
+.now-weather .shadow .left-info-list * {
+  width: 100%;
+}
+.now-weather .shadow .cards-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 8rem;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(145, 202, 255, 0.2), 40%, rgba(0, 62, 179, 0.8)), url(../img/Alice.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  -webkit-background-clip: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  background-clip: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+}
+.header .logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+.header .logo-box:hover {
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+.header .logo-box .logo {
+  height: 3.5rem;
+}
+.header .text-box {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.row {
+  margin: 0;
+  width: 100%;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+.row [class^=col-] {
+  float: left;
+}
+.row [class^=col-]:not(:last-child) {
+  margin-right: 0rem;
+}
+.row .col-1-of-2 {
+  width: calc(1 * (100% - (2 - 1) * 0rem)/2 + (1 - 1) * 0rem);
+}
+.row .col-1-of-3 {
+  width: calc(1 * (100% - (3 - 1) * 0rem)/3 + (1 - 1) * 0rem);
+}
+.row .col-2-of-3 {
+  width: calc(2 * (100% - (3 - 1) * 0rem)/3 + (2 - 1) * 0rem);
+}
+.row .col-1-of-4 {
+  width: calc(1 * (100% - (4 - 1) * 0rem)/4 + (1 - 1) * 0rem);
+}
+.row .col-2-of-4 {
+  width: calc(2 * (100% - (4 - 1) * 0rem)/4 + (2 - 1) * 0rem);
+}
+.row .col-3-of-4 {
+  width: calc(3 * (100% - (4 - 1) * 0rem)/4 + (3 - 1) * 0rem);
+}
+.row .col-1-of-30 {
+  width: calc(1 * (100% - (30 - 1) * 0rem)/30 + (1 - 1) * 0rem);
+}
+.row .col-1-of-168 {
+  width: calc(1 * (100% - (168 - 1) * 0rem)/168 + (1 - 1) * 0rem);
+}
+
+.navigation-checkbox {
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+}
+.navigation-button {
+  background-color: #fff;
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  border-radius: 50%;
+  z-index: 200;
+  box-shadow: 0 1.2rem 2rem rgba(0, 0, 0, 0.3);
+}
+.navigation-background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  background-image: radial-gradient(#1677ff 20%, #e1efff);
+  z-index: 100;
+  transition: all 0.5s;
+}
+.navigation-nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  opacity: 0;
+  width: 0;
+  transition: all 0.5s;
+}
+.navigation-list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+}
+.navigation-item {
+  margin: 1rem;
+}
+.navigation-link span {
+  margin-right: 1rem;
+}
+.navigation-link:link, .navigation-link:visited {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1rem;
+  background-image: linear-gradient(130deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 300%;
+  transition: all 0.4s;
+}
+.navigation-link:hover, .navigation-link:active {
+  background-position: 100%;
+  color: #1677ff;
+  transform: translateX(1rem);
+}
+.navigation-checkbox:checked ~ .navigation-nav {
+  opacity: 1;
+  width: 100vw;
+}
+.navigation-checkbox:checked ~ .navigation-background {
+  transform: scale(70);
+}
+.navigation-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.navigation-icon, .navigation-icon::before, .navigation-icon::after {
+  content: "";
+  width: 3rem;
+  height: 2px;
+  background-color: #777;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.navigation-icon::before, .navigation-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.navigation-icon::before {
+  top: -1rem;
+}
+.navigation-icon::after {
+  top: 1rem;
+}
+.navigation-button:hover .navigation-icon::before {
+  transform: translateY(-0.2rem);
+}
+.navigation-button:hover .navigation-icon::after {
+  transform: translateY(0.2rem);
+}
+.navigation-checkbox:checked ~ .navigation-button .navigation-icon::before {
+  top: 0;
+  transform: rotateZ(45deg);
+}
+.navigation-checkbox:checked ~ .navigation-button .navigation-icon::after {
+  top: 0;
+  transform: rotateZ(-45deg);
+}
+.navigation-checkbox:checked ~ .navigation-button .navigation-icon {
+  height: 0;
+}
+
+/*# sourceMappingURL=main.css.map */

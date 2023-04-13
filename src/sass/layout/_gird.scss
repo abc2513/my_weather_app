@@ -1,0 +1,55 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins"; 
+@mixin col-width($num,$total){
+    width: calc(#{$num} * (100% - (#{$total} - 1) * #{$gutter-horizontal})/#{$total} + (#{$num} - 1) * #{$gutter-horizontal})  ;
+}
+//width: calc(1 * (100% - 1 * #{$gutter-horizontal})/2);
+//可以混合单位运算
+//CSS函数，使用sass变量需要用哈希#{}
+
+.row{
+    //max-width: $gird-width;
+    //background-color:$color-primary-light;
+    margin: 0;
+    width: 100%;
+    @include clearfix;
+    &:not(:last-child){//not伪类选择器
+        margin-bottom: $gutter-vertical;
+    }
+    
+    //使用属性选择器
+    //[class="col-"]//等于
+    //[class^="col-"]//开头
+    //[class*="col-"]//包含
+    [class^="col-"]{
+        //background-color: orange;
+        float: left;
+        &:not(:last-child){
+            margin-right: $gutter-horizontal;
+        }
+    }
+    .col-1-of-2{
+        @include col-width(1, 2)
+    }
+    .col-1-of-3{
+        @include col-width(1, 3)
+    }
+    .col-2-of-3{
+        @include col-width(2, 3)
+    }
+    .col-1-of-4{
+        @include col-width(1, 4)
+    }
+    .col-2-of-4{
+        @include col-width(2, 4)
+    }
+    .col-3-of-4{
+        @include col-width(3, 4)
+    }
+    .col-1-of-30{
+        @include col-width(1,30)
+    }
+    .col-1-of-168{
+        @include col-width(1,168)
+    }
+}

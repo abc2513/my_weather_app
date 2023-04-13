@@ -1,0 +1,136 @@
+.navigation{
+    &-checkbox{
+        width: 0;
+        height: 0;
+        position: absolute;
+        opacity: 0;
+    }
+    &-button{
+        background-color: $color-white;
+        height: 7rem;
+        width: 7rem;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        border-radius: 50%;
+        z-index: 200;
+        box-shadow: $box-shadow-2;
+    }
+    &-background{
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        //background-color: orange;
+        position: fixed;//和绝对定位类似，但是滚动页面时，和屏幕相对位置不变
+        top:6.5rem;
+        right: 6.5rem;
+        background-image: radial-gradient($color-primary 20%, scale-color($color-blue-light,$lightness:80%));
+        z-index: 100;
+        transition: all .5s;
+        //transform: scale(60);
+    }
+    &-nav{
+        height: 100vh;
+        //width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 150;
+
+        opacity: 0;//不可见
+        width: 0;//不可交互
+        transition: all .5s;
+    }
+    &-list{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%,-50%);
+        list-style: none;
+        text-align: center;
+        cursor: pointer;
+    }
+    &-item{
+        margin: 1rem;
+    }
+    &-link{
+        span{
+            margin-right: 1rem;
+        }
+        &:link,&:visited{
+            display: inline-block;//使位移生效
+            font-size: 3rem;
+            font-weight: 300;
+            color: $color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 1rem;
+            background-image: linear-gradient(130deg,transparent 0%,transparent 50%,$color-white 50% );
+            background-size: 300%;
+            transition: all .4s;
+        }
+        
+        &:hover,&:active{
+            //background-image: linear-gradient(120deg,$color-orange 0%,$color-orange 100%,$color-white 100% );
+            background-position: 100%;
+            color: $color-primary;
+            transform: translateX(1rem);
+        }   
+    }
+    &-checkbox:checked ~ &-nav{
+        opacity: 1;
+        width: 100vw;
+        
+    }
+    &-checkbox:checked ~ &-background{
+        transform: scale(70);
+    }
+
+
+    //ICON
+    &-icon{
+        position:absolute;
+        left: 50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        &,&::before,&::after{
+            content: "";
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark;
+            display: inline-block;
+            transition: all .2s;
+        }
+        &::before,&::after{
+            content: "";
+            position:absolute;
+            left:0;
+        }
+        &::before{
+            top:-1rem;
+            //transform-origin: center;
+            //改变旋转的中心点
+        }
+        &::after{
+            top:1rem;
+        }
+    }
+    &-button:hover &-icon::before{
+        transform: translateY(-.2rem);
+    }
+    &-button:hover &-icon::after{
+        transform: translateY(.2rem);
+    }
+    &-checkbox:checked ~ &-button &-icon::before{
+        top:0;
+        transform:rotateZ(45deg);
+    }
+    &-checkbox:checked ~ &-button &-icon::after{
+        top:0;
+        transform:rotateZ(-45deg);
+    }
+    &-checkbox:checked ~ &-button &-icon{
+        height: 0;
+    }
+}

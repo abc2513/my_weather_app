@@ -1,0 +1,21 @@
+
+// /* 重置浏览器的填充，取消盒子模型的填充 */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    //color: inherit;
+}
+
+html {
+    font-size: 62.5%; /* 改成10px便于计算,或者%允许用户修改 */
+}
+body{
+    box-sizing: border-box;
+    width: 98vw;
+    min-height: 100vh;
+    margin: 0 auto;
+    color:$color-primary-dark;
+}
